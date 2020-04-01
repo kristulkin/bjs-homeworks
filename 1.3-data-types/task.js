@@ -1,9 +1,22 @@
+'use strict'
+
 function calculateTotalMortgage(percent, contribution, amount, date) {
-    // код для задачи №1 писать здесь
-    // return totalAmount;
+    let todayDay = new Date();
+    let month = (date.getFullYear() - todayDay.getFullYear()) * 12 ;
+   
+    let loanCapital = amount - contribution;
+    let monthPay = loanCapital * ((percent / 1200) + (percent / 1200) / (((1 + (percent / 1200)) ** month) - 1));
+    let totalAmount = (monthPay * month).toFixed(2);
+    
+    return totalAmount;
 }
 
 function getGreeting(name) {
-    // код для задачи №2 писать здесь
-    // return greeting;
-}
+    let greeting;
+    if (name == null || "" || undefined) {
+        greeting = 'Привет, мир! Меня зовут Аноним'
+    } else {
+        greeting = `Привет, мир! Меня зовут ${name}`
+    };
+     return greeting;
+};
