@@ -89,14 +89,33 @@ let data = {
 
 
 
-//   function getPersonData(secretData) {
-//       let person = {
-          
-//       };
+  function getPersonData(secretData) {
+      let person = {
+        //   firstName,
+        //   lastName
+      };
       
+      for (let value in secretData) {
+        
+          person[value] = getDecodedValue(secretData[value])
 
-//   };
+      };
 
-//   function getDecodedValue(secret) {
-//       let codePerson
-//   }
+      return person
+      
+  };
+
+  function getDecodedValue(secret) {
+      let codePerson;
+      if (secret === 0) {
+          codePerson = "Родриго";
+      } else if (secret === 1) {
+          codePerson = "Эмильо"
+      };
+      return codePerson;
+  };
+
+  console.log(getPersonData({
+      aaa: 0,
+      bbb: 1
+  }));
